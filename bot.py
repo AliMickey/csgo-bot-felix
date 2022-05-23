@@ -5,7 +5,6 @@ from discord import Color
 from steam.steamid import SteamID
 from database import get_db
 
-
 load_dotenv()
 discordToken = os.getenv('DISCORD_TOKEN')
 steamToken = os.getenv('STEAM_TOKEN')
