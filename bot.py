@@ -8,7 +8,9 @@ from database import get_db
 load_dotenv()
 discordToken = os.getenv('DISCORD_TOKEN')
 steamToken = os.getenv('STEAM_TOKEN')
-bot = commands.Bot(command_prefix='-')
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='-', intents=intents)
 audioText = json.load(open('audio.json'))
 bot.remove_command('help')
 
