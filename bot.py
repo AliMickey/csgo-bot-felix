@@ -9,7 +9,7 @@ load_dotenv()
 discordToken = os.getenv('DISCORD_TOKEN')
 steamToken = os.getenv('STEAM_TOKEN')
 intents = discord.Intents.default()
-intents.members = True
+intents.members = False
 bot = commands.Bot(command_prefix='-', intents=intents)
 audioText = json.load(open('audio.json'))
 bot.remove_command('help')
@@ -252,11 +252,13 @@ async def interval_vac_check(userId=None, guildId=None):
 # Daily ban checker
 @interval_vac_check.before_loop
 async def before():
-    await bot.wait_until_ready()
     print("Finished waiting for interval check")
+    await bot.wait_until_ready()
 
-# Main run
-interval_vac_check.start()
+@bot.event
+async def on_ready():
+      interval_vac_check.start()
+
 bot.run(discordToken)
 
 # Oath2 URL:
