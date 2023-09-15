@@ -3,4 +3,3 @@ discord.py[voice]
 discord
 PyNaCl
 steam
-youtube-dl

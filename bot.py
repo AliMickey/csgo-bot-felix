@@ -4,7 +4,7 @@ from discord.ext import commands, tasks
 from discord import Color
 from steam.steamid import SteamID
 from database import get_db
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 
 load_dotenv()
 discordToken = os.getenv('DISCORD_TOKEN')
