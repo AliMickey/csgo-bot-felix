@@ -1,0 +1,13 @@
+services:
+  discord-bot-cs-felix:
+    container_name: discord-bot-cs-felix
+    build: .
+    restart: unless-stopped
+    networks:
+      - apps
+    volumes:
+      - ./csgobot.db:/app/csgobot.db
+
+networks:
+  apps:
+    external: true
